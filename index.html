@@ -99,9 +99,10 @@ a{ color:inherit; }
 }
 
 .masthead{
-  position:fixed; top:1.3rem; left:clamp(1.25rem,4vw,3rem); z-index:30;
+  position:absolute; top:1.3rem; left:clamp(1.25rem,4vw,3rem); z-index:30;
   height:7.8rem; width:auto;
 }
+@media (max-width:640px){ .masthead{ height:5rem; } }
 
 .eyebrow{
   font-family:'IBM Plex Mono',monospace; font-size:.78rem; letter-spacing:.14em;
