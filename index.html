@@ -267,6 +267,9 @@ a{ color:inherit; }
 .dossier-head{ padding:5rem 0 3rem; }
 .dossier-head .logo-neg{ height:2.6rem; width:auto; margin-bottom:2rem; opacity:.92; }
 @media (min-width:1024px){
+  /* Se quita el transform del dossier (ya se inserta animado) para que el
+     logo con position:fixed se ancle a la ventana, no a este contenedor */
+  .dossier-head.reveal.in{ transform:none; }
   .dossier-head .logo-neg{ position:fixed; top:1.3rem; left:clamp(1.25rem,4vw,3rem); height:5rem; margin-bottom:0; opacity:1; z-index:20; }
 }
 .dossier-head .eyebrow{ color:var(--accent); }
