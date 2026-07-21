@@ -112,7 +112,6 @@ a{ color:inherit; }
 @media (min-width:1024px){
   .container{ max-width:78rem; margin-left:var(--logo-reserve); margin-right:auto; }
   .callout{ max-width:78rem; margin-left:var(--logo-reserve); margin-right:auto; }
-  .back-link{ padding-left:calc(var(--logo-reserve) + clamp(1.25rem,4vw,3rem)); }
 }
 
 .eyebrow{
@@ -270,7 +269,8 @@ a{ color:inherit; }
   /* Se quita el transform del dossier (ya se inserta animado) para que el
      logo con position:fixed se ancle a la ventana, no a este contenedor */
   .dossier-head.reveal.in{ transform:none; }
-  .dossier-head .logo-neg{ position:fixed; top:1.3rem; left:clamp(1.25rem,4vw,3rem); height:5rem; margin-bottom:0; opacity:1; z-index:20; }
+  /* Se baja respecto al Acto 1 para no chocar con la barra de regreso */
+  .dossier-head .logo-neg{ position:fixed; top:5.5rem; left:clamp(1.25rem,4vw,3rem); height:5rem; margin-bottom:0; opacity:1; z-index:20; }
 }
 .dossier-head .eyebrow{ color:var(--accent); }
 .dossier-head .eyebrow::before{ background:var(--accent); }
