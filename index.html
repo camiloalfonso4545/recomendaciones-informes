@@ -99,10 +99,21 @@ a{ color:inherit; }
 }
 
 .masthead{
-  position:absolute; top:1.3rem; left:clamp(1.25rem,4vw,3rem); z-index:30;
-  height:7.8rem; width:auto;
+  position:fixed; top:1.3rem; left:clamp(1.25rem,4vw,3rem); z-index:30;
+  height:5rem; width:auto;
 }
-@media (max-width:640px){ .masthead{ height:5rem; } }
+@media (max-width:1023px){ .masthead{ height:4.4rem; } }
+@media (max-width:640px){ .masthead{ height:3.8rem; } }
+
+/* Reserva un espacio izquierdo para el logo flotante en pantallas grandes,
+   corriendo el contenido a la derecha para que no se traslape.
+   Se desplaza el contenido (no el body) para que los fondos sigan a todo el ancho. */
+:root{ --logo-reserve:18rem; }
+@media (min-width:1024px){
+  .container{ max-width:78rem; margin-left:var(--logo-reserve); margin-right:auto; }
+  .callout{ max-width:78rem; margin-left:var(--logo-reserve); margin-right:auto; }
+  .back-link{ padding-left:calc(var(--logo-reserve) + clamp(1.25rem,4vw,3rem)); }
+}
 
 .eyebrow{
   font-family:'IBM Plex Mono',monospace; font-size:.78rem; letter-spacing:.14em;
@@ -255,11 +266,14 @@ a{ color:inherit; }
 
 .dossier-head{ padding:5rem 0 3rem; }
 .dossier-head .logo-neg{ height:2.6rem; width:auto; margin-bottom:2rem; opacity:.92; }
+@media (min-width:1024px){
+  .dossier-head .logo-neg{ position:fixed; top:1.3rem; left:clamp(1.25rem,4vw,3rem); height:5rem; margin-bottom:0; opacity:1; z-index:20; }
+}
 .dossier-head .eyebrow{ color:var(--accent); }
 .dossier-head .eyebrow::before{ background:var(--accent); }
 .dossier-head h1{
   font-family:'Source Serif 4',serif; font-weight:900; color:#fff;
-  font-size:clamp(2.1rem,5.4vw,4rem); line-height:1.04; margin-top:1.2rem; max-width:20ch;
+  font-size:clamp(2.1rem,5.4vw,4rem); line-height:1.04; margin-top:1.2rem; max-width:32ch;
 }
 .dossier-head .ctx{ margin-top:1.8rem; max-width:52rem; color:var(--ink-soft); font-size:1.1rem; }
 .dossier-head .ctx b{ color:#fff; font-weight:700; }
@@ -267,7 +281,7 @@ a{ color:inherit; }
 .d-block{ padding:3.2rem 0; border-top:1px solid var(--ink-border); display:grid; grid-template-columns:3.5rem 1fr; gap:2rem; }
 @media (max-width:640px){ .d-block{ grid-template-columns:1fr; gap:1rem; } }
 .d-block .n{ font-family:'IBM Plex Mono',monospace; color:var(--accent); font-size:1rem; }
-.d-block h3{ font-size:1.4rem; font-weight:700; max-width:30ch; color:#fff; }
+.d-block h3{ font-size:1.4rem; font-weight:700; line-height:1.2; max-width:42ch; color:#fff; }
 .d-block p{ margin-top:.9rem; max-width:52rem; color:var(--ink-soft); }
 .d-example{
   margin-top:1.2rem; font-family:'IBM Plex Mono',monospace; font-size:.85rem; color:var(--accent-deep);
